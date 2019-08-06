@@ -1,0 +1,53 @@
+<a onclick=matrix()>Click here to start. Check the console</a>
+
+<div id="print"></div>
+
+<script>
+
+function matrix() {
+let items = [
+    [1,1,1,1],
+    [0,1,1,0],
+    [0,1,0,1],
+    [0,1,9,1],
+    [1,1,1,1]
+];
+
+ let robot = items[0][0];
+
+  let target_line = 0;
+  let target_collumn = 0;
+  
+  // Walks throught the array to check where is the target and to map the holes
+  for (let i = 0 ; i <= 4 ; i++){
+      for (let j = 0 ; j <= 3 ; j++){
+          if(items[i][j] == 0) {
+            console.log('Hole at position: ', '[',i,']','[',j,']')
+          }
+          if(items[i][j] == 9) {
+            target_line = i;
+            target_collumn = j;
+            console.log('Robot: I need to go to:', '[',i,']','[',j,']', 'where value is >', items[i][j])    
+          }
+      }
+  }
+
+  for (let i = 0 ; i <= target_line ; i++){
+      for (let j = 0 ; j <= target_collumn ; j++){
+        if(items[i][j] != 0 && items[i][j] != 9) {     
+            console.log('Robot: I am at', '[',i,']','[',j,']', 'value>', items[i][j]);
+        } if(items[i][j] == 9) {     
+            console.log('Robot, YEAH! I am at my final position', '[',i,']','[',j,']', 'value>', items[i][j]);
+        } 
+      }
+  }
+
+}
+
+</script>
+
+<!--
+
+    
+
+-->
